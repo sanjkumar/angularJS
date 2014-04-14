@@ -26,4 +26,15 @@ function OrderFormController($scope) {
 	$scope.toggleActive = function(s) {
 		s.active = !s.active
 	}
+		
+	$scope.total = function() {
+		var total = 0;
+
+		angular.forEach($scope.services, function(s){
+			if(s.active) {
+				total += s.price;
+			}
+		})
+		return total;
+	};
 }
