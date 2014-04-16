@@ -1,4 +1,11 @@
-function OrderFormController($scope) {
+function OrderFormController($scope, $http) {
+
+   $http.get('http://api.ipic.tv/demo.json').then(function(result) {
+      $scope.services = result.data;
+   })
+
+//'https://api.ipic.tv/demo.json
+/*function OrderFormController($scope) {
 
 	$scope.services = [
 		{
@@ -22,7 +29,7 @@ function OrderFormController($scope) {
 			active: false
 		}
 	]
-
+*/
 	$scope.toggleActive = function(s) {
 		s.active = !s.active
 	}
